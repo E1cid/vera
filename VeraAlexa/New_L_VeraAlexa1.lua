@@ -193,12 +193,13 @@ function checkQueue(device)
     
 	-- is queue now empty?
 	if #ttsQueue[device] == 0 then
-		D("checkQueue: %1 no more items in queue, new check in 5 secs", device)
-        luup.call_delay("checkQueue", 5, device)
+		D("checkQueue: %1 - queue is empty", device)
+		--D("checkQueue: %1 no more items in queue, new check in 5 secs", device)
+        --luup.call_delay("checkQueue", 5, device)
 		return true
 	end
 
-	D("checkQueue: %1 play next", device)
+	D("checkQueue: %1 - play next", device)
 	-- get the next one
 	sayTTS(device, ttsQueue[device][1])
     
